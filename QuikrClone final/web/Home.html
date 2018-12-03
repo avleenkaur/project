@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#0083ca"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQQGV19SChACXFJXBwgDXw=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(16),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(17),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,v="fn"+h,w="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(v,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(19)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(19)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(19)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(19)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):v?v(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(19)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,v=l.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(w,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!v&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(16),s=t(17),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],16:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],17:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],18:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],19:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(17),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([b,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",g[e]=n,n in u||(u[n]=[])})}var y={},g={},b={on:p,addEventListener:p,removeEventListener:h,emit:e,get:v,listeners:m,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(16),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=x.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+x.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-x.offset}var s=(new Date).getTime(),c=t("handle"),f=t(16),u=t("ee"),d=t(15),l=window,p=l.document,h="addEventListener",m="attachEvent",v=l.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:v,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1099.min.js"},b=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:b,userAgent:d};t(12),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(18)},{}]},{},["loader",2,10,4,3]);</script>
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <meta name="fragment" content="!">
+    <meta name="theme-color" content="#0083ca"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0083ca">
+    <title>Property in Bangalore | Residential Real Estate Bangalore - QuikrHomes</title>
+    <link rel="shortcut icon" href="https://teja9.kuikr.com//images/favicon.ico" type="image/x-icon"/>
+    <meta name="google-site-verification" content="CQqisoPXOtszMqxpC_sFphT7o4tsqbnW0cCQexsIirc" />
+    <meta name="google-site-verification" content="jt5u06LcygO5syhi2g5LbDCux2BNYhvP0PunYetyWkk"/>
+        <meta id="meta_description" name="description" content="Explore 11.4 Lakhs + properties for Buy, Sell, Rent & List best Real Estate properties in Bangalore by property Owners, Dealers, Builders and Certified Real Estate Agents. Search residential Apartments, Houses, Commercial, Villas and other property listings on India's trusted Real Estate portal QuikrHomes."/>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="product" />
+    <meta property="og:title" content="Property in Bangalore | Residential Real Estate Bangalore - QuikrHomes" />
+    <meta property="og:description" content="Explore 11.4 Lakhs + properties for Buy, Sell, Rent & List best Real Estate properties in Bangalore by property Owners, Dealers, Builders and Certified Real Estate Agents. Search residential Apartments, Houses, Commercial, Villas and other property listings on India's trusted Real Estate portal QuikrHomes." />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="https://www.quikr.com/homes" />
+    <meta property="og:site_name" content="https://www.quikr.com/homes"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@QuikrHomes" />
+    <meta name="twitter:creator" content="@QuikrHomes" />
+    <meta name="twitter:title" content="Property in Bangalore | Residential Real Estate Bangalore - QuikrHomes" />
+    <meta name="twitter:description" content="Explore 11.4 Lakhs + properties for Buy, Sell, Rent & List best Real Estate properties in Bangalore by property Owners, Dealers, Builders and Certified Real Estate Agents. Search residential Apartments, Houses, Commercial, Villas and other property listings on India's trusted Real Estate portal QuikrHomes." />
+    <meta name="twitter:image:src" content="" />
+    <meta name="twitter:url" content="https://www.quikr.com/homes"/>
+    <meta name="twitter:domain" content="https://www.quikr.com/homes"/>
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <link rel="dns-prefetch" href="//teja8.kuikr.com" />
+    <link rel="dns-prefetch" href="//teja9.kuikr.com" />
+    <link rel="dns-prefetch" href="//teja10.kuikr.com" />
+    <link rel="preconnect" href="//teja8.kuikr.com" />
+    <link rel="preconnect" href="//teja9.kuikr.com" />
+    <link rel="preconnect" href="//teja10.kuikr.com" />
+    	<link rel="prefetch" href="https://teja8.kuikr.com/restatic/static/js/bundle.snb.b8edf72d4598e43af9f4.js" as="script">
+	<link rel="prefetch" href="https://teja8.kuikr.com/restatic/static/js/bundle.project.512cf826da9af5972579.js" as="script">
+	<link rel="prefetch" href="https://teja8.kuikr.com/restatic/static/assets/css/styles.snb.33d86a5828d7b20d33f7.css" as="stylesheet">
+	<link rel="prefetch" href="https://teja8.kuikr.com/restatic/static/assets/css/styles.project.9e58c7658875c8b0996a.css" rel="stylesheet">
+        <meta property="product:price:currency" content="INR" />
+    <link rel="canonical" href="https://www.quikr.com/homes">
+                            <link href="https://teja10.kuikr.com//module_assets/css/headerv2-3c5a99b7fb.css" rel="stylesheet">
+         <link href="https://teja10.kuikr.com//public/css/common.1535444082.css" rel="stylesheet">
+     <div class="simple-overlay"></div>
+<header class="main-header" id="dHeaderAPI">
+	<div class="quikr-header fixed-header-hp" id="quikrcom-header">
+	
+		<div class="quikr-quick-links hidden-xs hidden-sm">
+			<nav class="container">
+				<ul class="quick-links pull-left">
+</ul>
+<ul class="quick-links">
+
+
+
+
+</ul>
+			</nav>
+		</div>
+	
+
+		<div class="container">
+			<div class="quikr-header-child vert-headers">
+<div class="hamburger-logo"><a href="javascript:void(0)" class="hamburger_nav" id="hamburger" data-togg="dropdown" data-area="hamBox" data-cname="bangalore" data-cid="23" data-usid="false" data-usname="false" data-vname="homes" data-hamSubCats='false' data-mcname="Buy" data-login="true" data-stlinks="%5B%5D"><i class="icon-hamburger"></i></a>
+<a href="//www.quikr.com/homes" class="logo" id="quikrLogo"><span style="background-image:url(https://teja8.kuikr.com/module_assets/images/quikr_homes_logo.png)" class="q-homes-logo" title="Quikr Logo">Quikr</span></a></div>
+<div class="select-city">
+    
+        <a href="javascript:;" id="hSelectCity" class="hidden-xs hidden-sm" data-togg="dropdown" data-area="cityDropdown">
+            <i class="icon-location"></i>
+            <span>Bangalore</span>
+            <i class="icon-arrow"></i>    
+        </a>
+    
+    
+    <div class="drop-layers" id="cityDropdown" style="display:none;" data-type="overlay" cat_name="All" g_id="0">
+        
+            <div class="search-city">
+                <div class="header-custom-controls">
+                    <input type="text" id="hCityInput"/>
+                    <label class="">Type Your City Name</label>
+                </div> 
+            </div>
+
+            <div id="hCityList">
+                <div id="hSuggCityList"></div>
+                <div class="spl-cities">
+                    <a href="javascript:;" id="green_dhtml_content_All India" data-cid="1">All India</a>
+                </div>
+                <div class="spl-cities">
+                    <a href="http://bangalore.quikr.com/nationwide" id="interCDoorstep">InterCity Doorstep</a>
+                </div>
+                <div class="city-state-scroll">
+                
+                
+                <div class="spl-cities top-city">Top Cities</div>
+
+                <ul>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Ahmedabad" data-cid="22">Ahmedabad</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Bangalore" data-cid="23">Bangalore</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Chandigarh" data-cid="24">Chandigarh</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Chennai" data-cid="25">Chennai</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Coimbatore" data-cid="26">Coimbatore</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Delhi" data-cid="27">Delhi</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Hyderabad" data-cid="28">Hyderabad</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Kochi" data-cid="29">Kochi</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Kolkata" data-cid="30">Kolkata</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Mumbai" data-cid="31">Mumbai</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Pune" data-cid="33">Pune</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Gurgaon" data-cid="132222">Gurgaon</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Jaipur" data-cid="152222">Jaipur</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Lucknow" data-cid="162222">Lucknow</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Noida" data-cid="201301">Noida</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="NaviMumbai" data-cid="400701">NaviMumbai</a>
+    </li>
+
+    <li>
+		<a href="javascript:void(0);"
+			
+		   		type="popular"
+			
+		   data="Trivandrum" data-cid="695001">Trivandrum</a>
+    </li>
+
+</ul>
+                </div>
+            </div>        
+    </div>
+</div>
+
+<div class="header-right"><ul>
+<li><a href="javascript:;" id="h_fav" class=""><i class="icon-heart"></i><span class="notification-knob" data-type="fav_count">0</span></a></li>
+
+
+
+<li class="login-link">
+    
+
+    
+        <a href="javascript:;" id="loginLink" data-togg="modal" data-area="">
+            <span class="hidden-xs">
+                <i class="icon-my-account"></i> <label class="user-name">Login/Register</label> 
+            </span>
+          </a>
+    
+
+    
+        <div class="drop-layers my-account-layer" id="dashboardMenu" data-type="overlay" style="display:none;">
+            <ul>
+                
+                    
+                    
+                    <li  data-login=1  style=display:none>
+                        <a  id="myac"  href="http://bangalore.quikr.com/MyQuikr" title="My Account"   >
+                            My Account
+                            
+                        </a>
+                    </li>
+                
+                    
+                    
+                    <li  data-login=1  style=display:none>
+                        <a  id="acMyAds"  href="http://bangalore.quikr.com/MyQuikr?action=activeads" title="My Ads"   >
+                            My Ads
+                            
+                        </a>
+                    </li>
+                
+                    
+                    
+                    <li  data-login=1  style=display:none>
+                        <a  id="acMyAlerts"  href="http://bangalore.quikr.com/MyQuikr?action=alertsdetails" title="My Alerts"   >
+                            My Alerts
+                            
+                        </a>
+                    </li>
+                
+
+                <li style="padding: 10px;">
+                    
+                        <a href="javascript:;" id="signOutLink" class="login-reg-btn">Log Out</a>
+                    
+                    
+                </li>
+            </ul>
+        </div>
+    
+
+</li>
+<li class="postad-quick_link fixed-postAd-btn"><a id="postAdBtn" class="post-ad-btn" title="<b>Sell/ Rent Property Free</b><small>Post Free Ad</small>" href="//www.quikr.com/homes/postad" data-id="loader"><b>Sell/ Rent Property Free</b><small>Post Free Ad</small></a></li>
+</ul></div>
+</div>
+		</div>
+	</div>
+	<div id="hamModal"></div>
+	
+</header>   
+<script>
+    var SERVICE_HOST='https://feservices.quikr.com';
+    var SERVICE_END_POINT='/v2/header';
+    var FTOKEN = "aa4e3b8699b62c9d730d9d6ea1ffdc9f";
+    var isWebpSupport = 'image/webp';
+</script>
+
+    <script type="text/javascript" src="https://teja10.kuikr.com//module_assets/js/headerv1-eabbf828d76c335c6c5f.js"></script>
+    <input type="hidden" id="jsContextElement" data-js="{&quot;FTOKEN&quot;:&quot;aa4e3b8699b62c9d730d9d6ea1ffdc9f&quot;,&quot;QNextShared&quot;:{&quot;isLoggedIn&quot;:0,&quot;requestType&quot;:&quot;REQUEST_INDEXPAGE&quot;,&quot;isMobileRequest&quot;:0,&quot;loginModalCssPath&quot;:&quot;https:\/\/teja10.kuikr.com\/\/public\/css\/login-register.1542808082.css&quot;,&quot;loginExperimentVersion&quot;:4},&quot;CDN_DOMAIN&quot;:&quot;https:\/\/teja10.kuikr.com\/&quot;}" />
+<input type="hidden" name="login-css" id="login-css" value="https://teja10.kuikr.com/public/core/css/login-register.css" />        	<link href="https://teja8.kuikr.com/restatic/static/assets/css/styles.common.8451aff2153227573d16.css" rel="stylesheet">
+	<link href="https://teja8.kuikr.com/restatic/static/assets/css/styles.re_main.7b152d8518d43ab6b3d1.css" rel="stylesheet">
+
+<script type="text/javascript" id="d__inj" class="d__inj_delayed" src="/QkrDIV1ybuavzczvzuwuzzatsvrdrfadqdf.js" defer></script><style type="text/css">#d__fFH{position:absolute;top:-5000px;left:-5000px}#d__fF{font-family:serif;font-size:200px;visibility:hidden}#azsfryey{display:none!important}</style></head>
+<body>
+<div id="newlogindiv" data-type="overlay"></div>
+<a href="javascript:void(0)" class="goto-top" onclick="scrollTopGa();"><i class="icon-up"></i></a>
+
+<div class="module-homepage-search">
+	
+<style type="text/css">
+	.typeahead-header{
+		display: inline-block;
+		width: 100%;
+		padding:10px;
+		font-weight: bold;
+	}
+
+	.loadingOverlayImg{
+		position: absolute;
+		top: 30%;
+		left: 43%;
+	}
+
+	.loadingOverlayContainer{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #eee;
+		z-index: 99998;
+		opacity: 0.7;
+	}
+
+	.cityError{
+		border:1px solid red !important;
+	}
+</style>
+
+<div class="container">
+	<div class="home-search-page-bg">
+		<form class="form-inline" autocomplete='off'>
+			<h2><b>Buy, Rent</b> your dream property.</h2>
+			<div class="form-group search">
+				<div class="ovlf">
+					<div class="mres">
+						<ul class="qhcategory">
+							<li onclick="selectCategory('res',this);selectAdType({'key':'buy','displayVal':'Buy'});setSearchgaType('buy');searchGa('tabclick');addEvent('button-RealestateResponsiveUI', 'HP_Real_Estate', 'select_Adtype_residential_' + 'buy')">
+								<a href="javascript:void(0);" class="srchtab" id="buytab">Buy</a>
+							</li>
+							<li onclick="selectCategory('res',this);selectAdType({'key':'rent','displayVal':'Rent'});setSearchgaType('rent');searchGa('tabclick');addEvent('button-RealestateResponsiveUI', 'HP_Real_Estate', 'select_Adtype_residential_' + 'rent')">
+								<a href="javascript:void(0);" class="srchtab" id="renttab">Rent</a>
+							</li>
+							<li onclick="selectCategory('res',this);selectAdType({'key':'pg','displayVal':'PG/Hostels'});setSearchgaType('pg');searchGa('tabclick');addEvent('button-RealestateResponsiveUI', 'HP_Real_Estate', 'select_Adtype_residential_' + 'pg')">
+								<a href="javascript:void(0);" class="srchtab assured" id="pgtab">PG 
+																		<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+										 width="55" viewBox="0 0 170.3 68.5" enable-background="new 0 0 170.3 68.5" xml:space="preserve">
+									<g>
+										<path fill="#FFFFFF" d="M157.5,23.6v20.3H69.7V23.6H157.5z M30.8,2.9L30.8,2.9L3.3,17.2c0,0-7,36.7,27.2,48c0,0,13.7-6.3,17.7-10.7
+											c4.7-5,7.3-10.8,8.8-16.3c3-11.1,1.1-21,1.1-21L30.8,2.9z"/>
+										<path opacity="0.15" fill="#0FAA14" d="M34.2,5.8L7.5,20.2c0,0-5.5,33.1,28,43.1L31,65.5c0,0-32.9-8.2-27.6-48L30.8,3.2L34.2,5.8z"
+											/>
+										<path fill="#0FAA14" d="M129,32.2c0,0.5-0.2,1-0.5,1.3c-0.4,0.3-0.8,0.5-1.4,0.5h-2.9v-3.4h2.9c0.5,0,1,0.2,1.4,0.5
+											C128.8,31.3,129,31.7,129,32.2z M75.2,36.3h4l-2-5.5L75.2,36.3z M149.9,30.5h-2.3v7.9h2.3c0.8,0,1.5-0.2,2.1-0.5
+											c0.6-0.4,1.1-0.8,1.4-1.4c0.3-0.6,0.5-1.3,0.5-2c0-1.2-0.3-2.1-1-2.8C152.1,30.9,151.1,30.5,149.9,30.5z M35.4,43.4l-2-3.4
+											c-1.6-2.7-3.1-2.9-4.9-2.9l-1.1,0c-1.5,0-3-0.1-4-1.5c-0.5-0.8-0.7-1.9-0.7-3.5c0.1-2.2,1.2-6,2.8-7.5c0.7-0.6,1.6-1.2,2.8-1.5
+											c1.3-0.3,2.6-0.4,3.9-0.3c3,0.2,4.2,1.7,4.5,3.6c0.2,1.7-0.7,5.3-1.4,6.9c-0.6,1.3-1.3,2.3-2.3,2.9c0.6,0.4,1.3,1.1,1.9,2.2
+											l1.6,2.8c0.9-0.5,1.7-1,2.4-1.7c3.2-3.1,4.9-10.2,4.5-14.5c-0.4-4.5-3.5-6.9-7.7-7.5c-1.9-0.3-4.2-0.3-5.5-0.3
+											c-3.4,0.1-6.9,1.1-9.5,3.5c-2,1.9-3.1,4.5-3.8,7.6c-0.3,1.2-0.6,2.6-0.7,3.8c-0.1,1.1-0.1,2.1-0.1,3c0.3,3.8,2.6,5.9,5.4,7
+											c1.1,0.4,3.2,0.7,5,0.8c1.6,0.1,1.6,0.4,2.5,1.8l2.3,4c1.6,2.7,4.2,2.9,6.1,2.9h6.9l1.2-5.9h-6.1C36.7,45.7,36.6,45.2,35.4,43.4z
+											 M58.2,38.8c-1.7,6.5-4.8,12.1-9,16.7c-4.6,4.9-10.6,8.6-17.8,11h0l-0.5,0.2l-0.5-0.2C-4.3,55.1,2.4,17.8,2.4,17.4l0.1-0.5
+											L30.6,2.2h0.5l0.2,0.1l27.8,14.6l0.1,0.5C59.3,17.8,61.2,27.6,58.2,38.8z M57.4,18.2L30.9,4.3L4.3,18.2c-0.7,4.4-4.7,36,26.5,46.3
+											c6.9-2.3,12.5-5.8,16.8-10.4c4-4.3,6.9-9.7,8.6-15.9C58.8,28.9,57.7,20.3,57.4,18.2z M167.6,34.5c0,9.5-7.7,17.1-17.1,17.1H57.3
+											c8.7-12.1,7.2-30,6.7-34.2h86.5C160,17.4,167.6,25.1,167.6,34.5z M83.7,40.8l-4.9-12.7h-3.4l-4.9,12.7h3.1l0.8-2.1h5.4l0.8,2.1
+											H83.7z M94.4,37c0-0.6-0.1-1.1-0.3-1.5c-0.2-0.4-0.5-0.8-0.8-1.1c-0.3-0.3-0.7-0.5-1.2-0.7c-0.4-0.2-0.9-0.4-1.3-0.5
+											c-0.5-0.1-0.9-0.2-1.3-0.3c-0.4-0.1-0.8-0.2-1.2-0.3c-0.3-0.1-0.6-0.2-0.8-0.4c-0.2-0.2-0.3-0.4-0.3-0.6c0-0.4,0.2-0.7,0.5-0.9
+											c0.3-0.2,0.8-0.3,1.3-0.3c0.7,0,1.3,0.1,2,0.4s1.2,0.6,1.7,1l1.5-2c-1.3-1.2-2.9-1.8-4.9-1.8c-1.5,0-2.6,0.4-3.5,1.1
+											s-1.3,1.6-1.3,2.7c0,0.6,0.1,1.1,0.3,1.5c0.2,0.4,0.5,0.8,0.8,1c0.3,0.3,0.7,0.5,1.2,0.7c0.4,0.2,0.9,0.3,1.3,0.4
+											c0.5,0.1,0.9,0.2,1.3,0.3c0.4,0.1,0.8,0.2,1.2,0.3c0.3,0.1,0.6,0.2,0.8,0.4c0.2,0.2,0.3,0.4,0.3,0.7c0,0.4-0.2,0.7-0.6,1
+											c-0.4,0.3-0.9,0.4-1.6,0.4c-0.8,0-1.6-0.2-2.3-0.5c-0.7-0.3-1.3-0.7-1.8-1.3l-1.5,2.1c1.3,1.3,3.2,2,5.4,2c1.6,0,2.9-0.4,3.8-1.1
+											C93.9,39.2,94.4,38.2,94.4,37z M105.8,37c0-0.6-0.1-1.1-0.3-1.5c-0.2-0.4-0.5-0.8-0.8-1.1c-0.3-0.3-0.7-0.5-1.2-0.7
+											c-0.4-0.2-0.9-0.4-1.3-0.5c-0.5-0.1-0.9-0.2-1.3-0.3c-0.4-0.1-0.8-0.2-1.2-0.3c-0.3-0.1-0.6-0.2-0.8-0.4c-0.2-0.2-0.3-0.4-0.3-0.6
+											c0-0.4,0.2-0.7,0.5-0.9c0.3-0.2,0.8-0.3,1.3-0.3c0.7,0,1.3,0.1,2,0.4s1.2,0.6,1.7,1l1.5-2c-1.3-1.2-2.9-1.8-4.9-1.8
+											c-1.5,0-2.6,0.4-3.5,1.1s-1.3,1.6-1.3,2.7c0,0.6,0.1,1.1,0.3,1.5c0.2,0.4,0.5,0.8,0.8,1c0.3,0.3,0.7,0.5,1.2,0.7
+											c0.4,0.2,0.9,0.3,1.3,0.4c0.5,0.1,0.9,0.2,1.3,0.3c0.4,0.1,0.8,0.2,1.2,0.3c0.3,0.1,0.6,0.2,0.8,0.4c0.2,0.2,0.3,0.4,0.3,0.7
+											c0,0.4-0.2,0.7-0.6,1c-0.4,0.3-0.9,0.4-1.6,0.4c-0.8,0-1.6-0.2-2.3-0.5c-0.7-0.3-1.3-0.7-1.8-1.3l-1.5,2.1c1.3,1.3,3.2,2,5.4,2
+											c1.6,0,2.9-0.4,3.8-1.1C105.3,39.2,105.8,38.2,105.8,37z M119,28.2h-2.7v7.5c0,0.9-0.3,1.6-0.8,2.2s-1.2,0.8-2.2,0.8
+											c-1,0-1.7-0.3-2.2-0.8c-0.5-0.5-0.8-1.3-0.8-2.2v-7.5h-2.7v7.6c0,1.6,0.5,2.9,1.5,3.9c1,1,2.4,1.4,4.3,1.4c0.9,0,1.8-0.1,2.5-0.4
+											c0.7-0.3,1.3-0.6,1.8-1.1c0.5-0.5,0.8-1,1-1.7c0.2-0.6,0.4-1.4,0.4-2.2V28.2z M131.8,40.8L129,36c0.4-0.1,0.7-0.2,1-0.4
+											c0.3-0.2,0.6-0.4,0.9-0.7c0.3-0.3,0.5-0.7,0.7-1.1c0.2-0.5,0.2-0.9,0.2-1.5c0-1.2-0.4-2.2-1.2-2.9c-0.8-0.8-1.8-1.1-3.1-1.1h-5.9
+											v12.7h2.7v-4.5h2l2.5,4.5H131.8z M142.7,28.2h-9v12.7h9v-2.4h-6.3v-2.9h6.1v-2.4h-6.1v-2.7h6.3V28.2z M156.6,34.5
+											c0-1.9-0.6-3.4-1.9-4.6c-1.2-1.2-2.9-1.7-4.9-1.7h-5v12.7h5c1.3,0,2.5-0.3,3.5-0.8c1-0.5,1.8-1.3,2.4-2.2
+											C156.3,36.9,156.6,35.8,156.6,34.5z"/>
+										</g>
+									</svg>
+																	</a>
+							</li>
+							<li onclick="setSearchgaType('project');searchGa('tabclick');">
+								<a href="/homes/property/residential-projects-for-sale-in-bangalore-cid_23" class="srchtab" id="protab">Projects</a>
+							</li>
+							<li onclick="selectCategory('com',this);selectAdType({'key':'rent','displayVal':'Lease'});setSearchgaType('commercial');searchGa('tabclick');addEvent('button-RealestateResponsiveUI', 'HP_Real_Estate', 'select_Adtype_commercial_' + 'rent')">
+								<a href="javascript:void(0);" class="srchtab" id="comtab">Commercial</a>
+							</li>
+							<li onclick="selectCategory('agr',this);selectAdType({'key':'buy','displayVal':'Buy'});setSearchgaType('agriculture');searchGa('tabclick');addEvent('button-RealestateResponsiveUI', 'HP_Real_Estate', 'select_Adtype_agricultural_' + 'buy')">
+								<a href="javascript:void(0);" class="srchtab" id="agrtab">Agriculture</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="input-group"  dropdown>
+					<div class="input-group-btn add-css cityw120">				
+			        	<div id="enquiry_city"></div>
+<script id="selectCity_Template" type="text/x-underscore-template">
+
+    <span class="dropdown search-select-city" style="display: block;">
+    <button type="button" data-toggle="dropdown" href="javascript:void(0);" class="btn btn-default city-btn dropdown-toggle" onclick="citySelectController.clearSearch()">
+            <span id="selectedCity"></span>
+            <span id="selectCityLabel">Select City</span>
+            <span class="icon-down-open-mini cityangle"></span>
+    </button>
+    
+    <ul class="dropdown-menu upcarret-left citydp">
+        <li onkeyup="cancelBubble(event)">
+            <input type="text" placeholder="Type city" class="citysearch"  data-tap-disabled="true" />
+        </li>
+        <% _.each(all_cities, function(city){ %>
+        <li
+            onclick="searchGa('searchcity');citySelectController.selectCityEnquiryBox('<%= city.id %>','<%= city.name %>');addEvent('Real-Estate_Header_Responsive', pageName, 'select_cityname_' + <%= city.name %>);">
+            <a href="javascript:void(0);"><%= city.name %></a>
+        </li>
+        <% }); %>
+        <li>
+            <a href="javascript:void(0);" style="color:#008bcf;" data-target="#city-select" data-toggle="modal">More Cities ›</a>
+        </li>
+    </ul>
+</span>
+</script>
+					</div>
+					<div class="input-group-btn bsrproperty" id="bsrBtn">
+						<span class="dropdown bsr-dp" dropdown>
+							<button type="button" class="btn btn-default bsr-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" dropdown-toggle>
+								<span id="defaultAdTypeSelect"></span>
+								<span class="icon-down-open-mini bsrangle"></span>
+							</button>
+							<ul class="dropdown-menu bsrdw">
+								<li onclick="selectCategory('com');selectAdType({'key':'rent','displayVal':'Lease'});addEvent('button-RealestateResponsiveUI', 'HP_Real_Estate', 'select_Adtype_commercial_' + 'rent')">
+									<a href="javascript:void(0);">Lease - Commercial<span> Office | Shop | Complex </span></a>
+								</li>
+								<li onclick="selectCategory('com');selectAdType({'key':'buy','displayVal':'Buy'});addEvent('button-RealestateResponsiveUI', 'HP_Real_Estate', 'select_Adtype_commercial_' + 'buy')">
+									<a href="javascript:void(0);">Buy - Commercial<span> Office | Shop | Complex | Plot | Land </span>
+									</a>
+								</li>
+							</ul>
+						</span>
+					</div>
+					<input
+						type="text"
+						name="searchHomes"
+						id="searchHomes"
+						value=""
+						onclick="searchGa('searchBox');gaService.addEvent('link-RealestateResponsiveUI','HP_Real-Estate','click_autosearch');"
+						class="form-control"
+						placeholder=""
+					/>
+				
+					<button type="button" class="input-group-btn homesrchbtn" onclick="searchGa('searchButton');onKeyDown('HP_Real-Estate');">
+						<i class="icon-search visible-xs visible-sm"></i> <span class="hidden-xs hidden-sm">Search</span></button> 
+					<ul class="dropdown-menu" id="showautosuggest" style="display:none; top: 50px; left: 119px;">
+					</ul>
+					<ul class="dropdown-menu presearchsuggest row hide" id="showPresearchSuggestMetro">
+					</ul>
+					<ul class="dropdown-menu presearchsuggest row hide" id="showPresearchSuggestNonMetro">
+					</ul>
+					<!-- Pre Search Suggest Ends -->
+				</div>
+			</div>
+		</form>
+		<div class="qhsrchlink">
+			<ul>
+				<li><a href="/homes/property/residential-for-sale-by-owner-bangalore-cid_23" onclick="addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate', 'click_buy_owner_properties');">Buy Owner Properties</a></li>
+				<li><a href="/homes/property/residential-for-rent-by-owner-bangalore-cid_23" onclick="addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate', 'click_rent_owner_properties');">Rental Owner Properties</a></li>
+			</ul>
+		</div>
+		<div class="browse-search-home">
+			<div class="browse-open-link clearfix">
+				<h1>Browse Properties in Bangalore</h1>
+								<ul>
+					<li class="hpsp rnt">
+						<div class="hlhead">
+							<a href="/homes/property/residential-for-rent-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'rent','displayVal':'Rent'});addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_rent');">Rent - Houses / Apartments</a><i class="icon-down-open-mini hlangle visible-sm visible-xs"></i>
+						</div>
+						<div class="hlsubhead">
+							<a href="/homes/property/residential-1bhk-for-rent-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'rent','displayVal':'Rent'});homeSearchGa('rent_1bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_rent_1');">1BHK</a> 
+							<a href="/homes/property/residential-2bhk-for-rent-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'rent','displayVal':'Rent'});homeSearchGa('rent_2bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_rent_2');">2BHK</a> 
+							<a href="/homes/property/residential-3bhk-for-rent-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'rent','displayVal':'Rent'});homeSearchGa('rent_3bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_rent_3');">3BHK</a>
+							<a href="/homes/property/residential-4bhk-for-rent-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'rent','displayVal':'Rent'});homeSearchGa('rent_4bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_rent_4');">4BHK</a>
+							<a href="/homes/property/residential-4+bhk-for-rent-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'rent','displayVal':'Rent'});homeSearchGa('rent_4plusbhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_rent_4p');">4+BHK</a>
+						</div>
+					</li>
+					<li class="hpsp buy">
+						<div class="hlhead">
+							<a href="/homes/property/residential-for-sale-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'buy','displayVal':'Buy'});addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_sale');">Buy - Houses / Apartments</a><i class="icon-down-open-mini hlangle visible-sm visible-xs"></i>
+						</div>
+						<div class="hlsubhead">
+							<a href="/homes/property/residential-1bhk-for-sale-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'buy','displayVal':'Buy'});homeSearchGa('buy_1bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_sale_1');">1BHK</a> 
+							<a href="/homes/property/residential-2bhk-for-sale-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'buy','displayVal':'Buy'});homeSearchGa('buy_2bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_sale_2');">2BHK</a> 
+							<a href="/homes/property/residential-3bhk-for-sale-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'buy','displayVal':'Buy'});homeSearchGa('buy_3bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_sale_3');">3BHK</a>
+							<a href="/homes/property/residential-4bhk-for-sale-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'buy','displayVal':'Buy'});homeSearchGa('buy_4bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_sale_4');">4BHK</a>
+							<a href="/homes/property/residential-4+bhk-for-sale-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'buy','displayVal':'Buy'});homeSearchGa('buy_4plusbhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_sale_4p');">4+BHK</a>
+						</div>
+					</li>
+				</ul>
+												<ul>
+					<li class="hpsp pg">
+						<div class="hlhead">
+							<a href="/homes/property/residential-for-pg_flatmates-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'pg','displayVal':'PG/Hostels'});addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_pg');">PG / Flatmates</a><i class="icon-down-open-mini hlangle visible-sm visible-xs"></i>
+						</div>
+						<div class="hlsubhead">
+							<a href="/homes/property/residential-1bhk-for-pg_flatmates-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'pg','displayVal':'PG/Hostels'});homeSearchGa('pg_1bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_pg_1');">1BHK</a>
+							<a href="/homes/property/residential-2bhk-for-pg_flatmates-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'pg','displayVal':'PG/Hostels'});homeSearchGa('pg_2bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_pg_2');">2BHK</a>
+							<a href="/homes/property/residential-3bhk-for-pg_flatmates-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'pg','displayVal':'PG/Hostels'});homeSearchGa('pg_3bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_pg_3');">3BHK</a>
+							<a href="/homes/property/residential-4bhk-for-pg_flatmates-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'pg','displayVal':'PG/Hostels'});homeSearchGa('pg_4bhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_pg_4');">4BHK</a>
+							<a href="/homes/property/residential-4+bhk-for-pg_flatmates-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'pg','displayVal':'PG/Hostels'});homeSearchGa('pg_4plusbhk');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_pg_4p');">4+BHK</a>
+						</div>
+					</li>
+					<li class="hpsp lnd">
+						<div class="hlhead">
+							<a href="/homes/property/agricultural-for-sale-in-bangalore-cid_23" onclick="selectCategory('agr');selectAdType({'key':'buy','displayVal':'Buy'});addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_agriculture_buy');">Land &nbsp; Plot</a><i class="icon-down-open-mini hlangle visible-sm visible-xs"></i>
+						</div>
+						<div class="hlsubhead">
+							<a href="/homes/property/agricultural-plots-for-sale-in-bangalore-cid_23" onclick="selectCategory('agr');selectAdType({'key':'buy','displayVal':'Buy'});homeSearchGa('plot_agriculture');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_agriculture_buy');">Agriculture</a>
+							<a href="/homes/property/residential-plots-for-sale-in-bangalore-cid_23" onclick="selectCategory('res');selectAdType({'key':'buy','displayVal':'Buy'});homeSearchGa('plot_residential');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_residential_sale_plot');">Residential</a>
+							<a href="homes/property/commercial-plots-for-sale-in-bangalore-cid_23" onclick="selectCategory('com');selectAdType({'key':'buy','displayVal':'Buy'});homeSearchGa('plot_commercial');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_commercial_plot');">Commercial</a>
+						</div>
+					</li>
+				</ul>
+								<ul>
+					<li class="hpsp com">
+						<div class="hlhead">
+							<a href="/homes/property/commercial-for-rent-in-bangalore-cid_23" onclick="selectCategory('com');selectAdType({'key':'rent','displayVal':'Rent'});addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_commercial_rent');">Commercial</a><i class="icon-down-open-mini hlangle visible-sm visible-xs"></i>
+						</div>
+						<div class="hlsubhead">
+							<a href="homes/property/commercial-offices-for-rent-in-bangalore-cid_23" onclick="selectCategory('com');selectAdType({'key':'rent','displayVal':'Rent'});homeSearchGa('commercial_lease_office');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_commercial_rent_office');">Lease: Office </a>
+							<a href="homes/property/commercial-shops-for-rent-in-bangalore-cid_23" onclick="selectCategory('com');selectAdType({'key':'rent','displayVal':'Rent'});homeSearchGa('commercial_lease_shop');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_commercial_shop');"> Shop</a>
+							<a href="/homes/property/commercial-offices-for-sale-in-bangalore-cid_23" onclick="selectCategory('com');selectAdType({'key':'buy','displayVal':'Buy'});homeSearchGa('commercial_buy_office');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_commercial_buy_office');">Buy: Office </a>
+							<a href="/homes/property/commercial-shops-for-sale-in-bangalore-cid_23" onclick="selectCategory('com');selectAdType({'key':'buy','displayVal':'Buy'});homeSearchGa('commercial_buy_shop');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate_Browse', 'select_browse_commercial_shop');"> Shop</a>
+						</div>
+					</li>
+					<li class="hpsp pro">
+						<div class="hlhead">
+							<a href="/homes/property/residential-projects-for-sale-in-bangalore-cid_23" onclick="gaService.addEvent('link-RealestateResponsiveUI','HP_Real-Estate','click_Projects_in_bangalore')">19956+ Projects </a> <i class="icon-down-open-mini hlangle visible-sm visible-xs"></i>
+						</div>
+						<div class="hlsubhead">
+							<a href="/homes/property/residential-projects-for-sale-in-bangalore/RERA-registered-projects-cid_23" onclick="homeSearchGa('projects_RERARegistered');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate', 'click_Rera_registered');">RERA Registered </a>
+							<a href="/homes/property/residential-projects-for-sale-in-bangalore/ready-to-move-in-projects-cid_23" onclick="homeSearchGa('projects_readyToMove');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate', 'click_ready_to_move');">Ready to move </a>
+							<a href="/homes/property/residential-projects-for-sale-in-bangalore/projects-completing-in-2018-cid_23" onclick="homeSearchGa('projects_2018');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate', 'click_possession_2018');">2018</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+		<div class="qhsrchoffer clearfix">
+			<a href="/homes/homeloan" class="offertile pull-left" onclick="homeCommonGa('topsection','homeloan');addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate', 'click_HDFC_home_loan');">
+				<img data-src="https://teja8.kuikr.com/restatic/build/image/bank_logo/hdfc_home_loans.jpg" class="lozad">
+				<span class="hlo">Home Loan Offers <small>Get a pre-approved Home Loan</small></span>
+			</a>
+			<a class="offertile pull-right" href="/homes/blog" target="_blank">
+				<img data-src="https://teja8.kuikr.com/restatic/build/image/h_blog.jpg" class="lozad">
+				<span class="pdtp5">Blog <small>Know more about the ins and outs of Real Estate</small></span>
+			</a>
+			<div class="offertile resumehm hide" id="resumeAd">
+				<h4 class="with-progress">You are few steps away from getting leads</h4>
+				<div class="ovre">
+					<p id="resume-ad-title"></p>
+					<div class="progress-line">
+			            <div class="green-fill resume-ad" style="width: 40%;"></div>
+			            <span class="num resume-ad-score">40%</span>
+			        </div>
+			        <a href="//www.quikr.com/homes/postad" class="button button-secondary-line" onclick="homeCommonGa('topsection','resumeAd');">Post Ad Now</a>
+		        </div>
+			</div>
+		</div>
+
+	</div>
+</div></div>
+<!-- starts carousel -->
+<div class="homepagecarousel">
+	<div class="module-homepage-carousel" id="hpCarousel">
+	<div class="homepage-carousel gradbg">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div id="brokerCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+						<div class="carousel-inner" role="listbox">
+							<!-- <div class="tvbg"></div> -->
+														<div class="item active">
+								<div class="sliderimg clearfix">
+																	   	<div class="bannerlogo">
+								   												<a rel="nofollow" id="phref0" href="https://www.quikr.com/homes/listing/2-bhk-apartment-of-1230sqft-for-sale-brigade-northridge---phase-1-jakkur-bangalore-313801823?utm_source=qh-home-page-backdrop&utm_medium=banner&utm_campaigns=brigade-northridge---phase-1" target="_blank"
+											ga-directive ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'HP_Real-Estate', 'label': 'carousel_slot1'}" class="clearfix" onclick="homeCommonGa('adbanner1','homeloan')">
+											<div class="logodiv"><span><img id="logo0" data-src="https://teja10.kuikr.com/r1/20181025/ak_80_1076999483-1540448862_80x80.png" class="lozad" alt="Brigade Northridge - Phase 1 by Brigade Group"></span></div>
+											<div class="clearfix"></div>
+											<div class="logoinfo">
+												<h2 id="pname0">Brigade Northridge - Phase 1 by Brigade Group</h2>
+												<p id="city0">In Jakkur, Bangalore</p>
+												<span>Apartments Starting @ 70 Lakh onwards</span>
+												<small>View Details</small>
+											</div>
+										</a>
+																				<a class="imint" href="https://www.quikr.com/homes/listing/2-bhk-apartment-of-1230sqft-for-sale-brigade-northridge---phase-1-jakkur-bangalore-313801823?utm_source=qh-home-page-backdrop&utm_medium=banner&utm_campaigns=brigade-northridge---phase-1" target="_blank" rel="noopener"><button class="button button-secondary-line">I am Interested</button></a>
+																			</div>    
+																											<a href="https://www.quikr.com/homes/listing/2-bhk-apartment-of-1230sqft-for-sale-brigade-northridge---phase-1-jakkur-bangalore-313801823?utm_source=qh-home-page-backdrop&utm_medium=banner&utm_campaigns=brigade-northridge---phase-1" target="_blank" class="itemimage">
+																					<img data-src="https://teja10.kuikr.com/restatic/Brigademd.jpg" class="lozad" alt="Premium Projects" />
+																		   	</a>
+								   									</div>
+							</div>
+														<div class="item ">
+								<div class="sliderimg clearfix">
+																	   	<div class="bannerlogo">
+								   												<a rel="nofollow" id="phref1" href="https://www.quikr.com/homes/project/nbr-trifecta+sarjapur-road+bangalore+129229?utm_source=qh-home-page-backdrop&utm_medium=banner&utm_campaigns=nbr-trifecta" target="_blank"
+											ga-directive ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'HP_Real-Estate', 'label': 'carousel_slot2'}" class="clearfix" onclick="homeCommonGa('adbanner1','homeloan')">
+											<div class="logodiv"><span><img id="logo1" data-src="https://teja10.kuikr.com/r1/20180920/ak_302_1965229806-1537437451_80x80.jpeg" class="lozad" alt="NBR Trifecta by NBR Group"></span></div>
+											<div class="clearfix"></div>
+											<div class="logoinfo">
+												<h2 id="pname1">NBR Trifecta by NBR Group</h2>
+												<p id="city1">In Sarjapur Road, Bangalore</p>
+												<span>Plots starting @ 9.30 Lakh</span>
+												<small>View Details</small>
+											</div>
+										</a>
+																				<a class="imint" data-target="#commonpopup" data-toggle="modal" data-entity="HP_PROJECT_BACKDROP" data-id="1"><button class="button button-secondary-line"><i class="icon-working"></i> I am Interested</button></a>
+																			</div>    
+																											<a href="https://www.quikr.com/homes/project/nbr-trifecta+sarjapur-road+bangalore+129229?utm_source=qh-home-page-backdrop&utm_medium=banner&utm_campaigns=nbr-trifecta" target="_blank" class="itemimage">
+																					<img data-src="https://teja10.kuikr.com/restatic/NBRmd.jpg" class="lozad" alt="Premium Projects" />
+																		   	</a>
+								   									</div>
+							</div>
+														<div class="item ">
+								<div class="sliderimg clearfix">
+																	   	<div class="bannerlogo">
+								   												<a rel="nofollow" id="phref2" href="https://www.quikr.com/homes/project/arsis-green-hills+battarahalli+bangalore+128425?utm_source=qh-home-page-backdrop&utm_medium=banner&utm_campaigns=arsis-green-hills" target="_blank"
+											ga-directive ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'HP_Real-Estate', 'label': 'carousel_slot3'}" class="clearfix" onclick="homeCommonGa('adbanner1','homeloan')">
+											<div class="logodiv"><span><img id="logo2" data-src="https://teja10.kuikr.com/r1/20181005/ak_258_2063417798-1538746732_80x80.png" class="lozad" alt="Arsis Green Hills By Arsis Developers Pvt Ltd"></span></div>
+											<div class="clearfix"></div>
+											<div class="logoinfo">
+												<h2 id="pname2">Arsis Green Hills By Arsis Developers Pvt Ltd</h2>
+												<p id="city2">In Battarahalli, Bangalore</p>
+												<span>Apartments Starting @ 77.92 Lakh Onwards</span>
+												<small>View Details</small>
+											</div>
+										</a>
+																				<a class="imint" data-target="#commonpopup" data-toggle="modal" data-entity="HP_PROJECT_BACKDROP" data-id="2"><button class="button button-secondary-line"><i class="icon-working"></i> I am Interested</button></a>
+																			</div>    
+																											<a href="https://www.quikr.com/homes/project/arsis-green-hills+battarahalli+bangalore+128425?utm_source=qh-home-page-backdrop&utm_medium=banner&utm_campaigns=arsis-green-hills" target="_blank" class="itemimage">
+																					<img data-src="https://teja10.kuikr.com/restatic/Arsmd.jpg" class="lozad" alt="Premium Projects" />
+																		   	</a>
+								   									</div>
+							</div>
+														<div class="item ">
+								<div class="sliderimg clearfix">
+																	   	<div class="bannerlogo">
+								   												<a rel="nofollow" id="phref3" href="https://www.quikr.com/homes/project/nbr-meadows+alasanatham-road+hosur+3953?utm_source=qh-home-page-backdrop&utm_medium=banner&utm_campaigns=nbr-meadows" target="_blank"
+											ga-directive ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'HP_Real-Estate', 'label': 'carousel_slot4'}" class="clearfix" onclick="homeCommonGa('adbanner1','homeloan')">
+											<div class="logodiv"><span><img id="logo3" data-src="https://teja10.kuikr.com/r1/20181105/ak_162_998173923-1541415224_80x80.jpeg" class="lozad" alt="NBR Meadows by NBR Group"></span></div>
+											<div class="clearfix"></div>
+											<div class="logoinfo">
+												<h2 id="pname3">NBR Meadows by NBR Group</h2>
+												<p id="city3">In Alasanatham Road, Hosur</p>
+												<span>Plots starting @ 3.99 Lakh</span>
+												<small>View Details</small>
+											</div>
+										</a>
+																				<a class="imint" data-target="#commonpopup" data-toggle="modal" data-entity="HP_PROJECT_BACKDROP" data-id="3"><button class="button button-secondary-line"><i class="icon-working"></i> I am Interested</button></a>
+																			</div>    
+																											<a href="https://www.quikr.com/homes/project/nbr-meadows+alasanatham-road+hosur+3953?utm_source=qh-home-page-backdrop&utm_medium=banner&utm_campaigns=nbr-meadows" target="_blank" class="itemimage">
+																					<img data-src="https://teja10.kuikr.com/restatic/NBRMeadowsmd.jpg" class="lozad" alt="Premium Projects" />
+																		   	</a>
+								   									</div>
+							</div>
+														<div class="item ">
+								<div class="sliderimg clearfix">
+																	   	<div class="bannerlogo">
+								   												<a rel="nofollow" id="phref4" href="https://www.quikr.com/homes/project/jain-height-rain-forest+devanahalli+bangalore+223675?utm_source=qh-home-page-backdrop&utm_medium=banner&utm_campaigns=nbr-meadowsjain-height-rain-forest" target="_blank"
+											ga-directive ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'HP_Real-Estate', 'label': 'carousel_slot5'}" class="clearfix" onclick="homeCommonGa('adbanner1','homeloan')">
+											<div class="logodiv"><span><img id="logo4" data-src="https://teja10.kuikr.com/r1/20181106/ak_208_819676526-1541494084_80x80.jpeg" class="lozad" alt="Jain height Rain Forest"></span></div>
+											<div class="clearfix"></div>
+											<div class="logoinfo">
+												<h2 id="pname4">Jain height Rain Forest</h2>
+												<p id="city4">In Devanahalli, Bangalore</p>
+												<span>Plots Starting @ 48.82 Lakh Onwards</span>
+												<small>View Details</small>
+											</div>
+										</a>
+																				<a class="imint" data-target="#commonpopup" data-toggle="modal" data-entity="HP_PROJECT_BACKDROP" data-id="4"><button class="button button-secondary-line"><i class="icon-working"></i> I am Interested</button></a>
+																			</div>    
+																											<a href="https://www.quikr.com/homes/project/jain-height-rain-forest+devanahalli+bangalore+223675?utm_source=qh-home-page-backdrop&utm_medium=banner&utm_campaigns=nbr-meadowsjain-height-rain-forest" target="_blank" class="itemimage">
+																					<img data-src="https://teja10.kuikr.com/restatic/manimd.jpg" class="lozad" alt="Premium Projects" />
+																		   	</a>
+								   									</div>
+							</div>
+													</div>
+						<ol class="carousel-indicators"></ol>
+												<a class="left carousel-control" href="#brokerCarousel" role="button" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						</a>
+						<a class="right carousel-control" href="#brokerCarousel" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						</a>
+											</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!--  end carousel -->
+
+<div class="clearfix"></div>
+
+<div class="tmpl-home">
+		<section class="container mrtp60">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="headinghome fpheader">Featured Projects</h2>
+				<div class="whiteborderbox" id="hpFeaturedProj">
+					<div id="projectCarousel" class="single-item" role="toolbar">
+
+													<div class="module-featured-tiles">
+																	<div class="col-sm-12 col-md-4">
+										<div class="featured-tile">
+											<a class="featured-image-wrap"
+											   id="phref31"
+											   onclick="homeCommonGa('featuredProjects','S2 Homes The Water Grove Duplex')"
+											   href="/homes/project/s2-homes-the-water-grove-duplex+electronic-city-phase-ii+Bangalore+223634"
+											   ga-directive
+											   ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'Locality_Real-Estate', 'label': 'click_featuredproject_S2 Homes The Water Grove Duplex'}">
+												<div class="featured-image-wrap-child">
+																											<img
+															data-src="https://teja10.kuikr.com//r1/20180817/ak_2048_2111974944-1534506341_300x300.jpeg"
+															alt=""
+															class="img-responsive lozad">
+																										<div class="ftag">Featured</div>
+													<div class="developer-logo">
+														<div class="img-builderlogo"
+															 title="S2 Homes The Water Grove Duplex">
+															 																<img data-src="https://teja10.kuikr.com//r1/20180712/ak_88_1719283851-1531391218_80x80.jpeg" class="img-responsive lozad" alt="" id="logo31">
+															 														</div>
+													</div>
+												</div>
+												<!-- <div class="vdbtn">View Details</div> -->
+												<div class="featured-tile-bottom">
+													<h4 id="pname31">S2 Homes The Water Grove Duplex</h4>
+												   													<div class="fploc" id="city31">Electronic City Phase II, Bangalore													</div>
+																										<div class="featured-data">
+																													<span>3 BHK </span>
+																													<span> Apartment</span>
+													</div>
+																											<div class="featured-price-detail">
+															<i class="icon icon-rupee_2 ricon"></i><span>94.55 Lakh</span>
+															<span> - </span>
+															<i class="icon icon-rupee_2 ricon"></i><span>97.4 Lakh</span>
+														</div>
+																									</div>
+											</a>
+											<div class="featured-booknow clearfix">
+												<a href="javascript:void(0);" class="viewdls" data-target="#commonpopup" data-toggle="modal" data-id="31" data-entity="HP_FEATURED_PROJECT"><i class="icon-chat-bubble-two"></i>I am interested</a>
+											</div>
+										</div>
+									</div>
+																	<div class="col-sm-12 col-md-4">
+										<div class="featured-tile">
+											<a class="featured-image-wrap"
+											   id="phref41"
+											   onclick="homeCommonGa('featuredProjects','S2 Homes Butterfly Gardens')"
+											   href="/homes/project/s2-homes-butterfly-gardens+jigani+Bangalore+45995"
+											   ga-directive
+											   ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'Locality_Real-Estate', 'label': 'click_featuredproject_S2 Homes Butterfly Gardens'}">
+												<div class="featured-image-wrap-child">
+																											<img
+															data-src="https://teja10.kuikr.com//r1/20151007/ak_997_427044521-1444216059_300x300.jpeg"
+															alt=""
+															class="img-responsive lozad">
+																										<div class="ftag">Featured</div>
+													<div class="developer-logo">
+														<div class="img-builderlogo"
+															 title="S2 Homes Butterfly Gardens">
+															 																<img data-src="https://teja10.kuikr.com//r1/20180712/ak_88_1719283851-1531391218_80x80.jpeg" class="img-responsive lozad" alt="" id="logo41">
+															 														</div>
+													</div>
+												</div>
+												<!-- <div class="vdbtn">View Details</div> -->
+												<div class="featured-tile-bottom">
+													<h4 id="pname41">S2 Homes Butterfly Gardens</h4>
+												   													<div class="fploc" id="city41">Jigani, Bangalore													</div>
+																										<div class="featured-data">
+																													<span> Plot</span>
+													</div>
+																											<div class="featured-price-detail">
+															<i class="icon icon-rupee_2 ricon"></i><span>21.6 Lakh</span>
+															<span> - </span>
+															<i class="icon icon-rupee_2 ricon"></i><span>27 Lakh</span>
+														</div>
+																									</div>
+											</a>
+											<div class="featured-booknow clearfix">
+												<a href="javascript:void(0);" class="viewdls" data-target="#commonpopup" data-toggle="modal" data-id="41" data-entity="HP_FEATURED_PROJECT"><i class="icon-chat-bubble-two"></i>I am interested</a>
+											</div>
+										</div>
+									</div>
+																	<div class="col-sm-12 col-md-4">
+										<div class="featured-tile">
+											<a class="featured-image-wrap"
+											   id="phref51"
+											   onclick="homeCommonGa('featuredProjects','Kolte Patil Ivy Estate Nia')"
+											   href="/homes/project/kolte-patil-ivy-estate-nia+wagholi+Pune+224882"
+											   ga-directive
+											   ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'Locality_Real-Estate', 'label': 'click_featuredproject_Kolte Patil Ivy Estate Nia'}">
+												<div class="featured-image-wrap-child">
+																											<img
+															data-src="https://teja10.kuikr.com//r1/20181011/ak_900_1336988800-1539233111_300x300.jpeg"
+															alt=""
+															class="img-responsive lozad">
+																										<div class="ftag">Featured</div>
+													<div class="developer-logo">
+														<div class="img-builderlogo"
+															 title="Kolte Patil Ivy Estate Nia">
+															 																<img data-src="https://teja10.kuikr.com//r1/20170915/ak_351_1750073813-1505478843_80x80.jpeg" class="img-responsive lozad" alt="" id="logo51">
+															 														</div>
+													</div>
+												</div>
+												<!-- <div class="vdbtn">View Details</div> -->
+												<div class="featured-tile-bottom">
+													<h4 id="pname51">Kolte Patil Ivy Estate Nia</h4>
+												   													<div class="fploc" id="city51">Wagholi, Pune													</div>
+																										<div class="featured-data">
+																													<span>1,2 BHK </span>
+																													<span> Apartment</span>
+													</div>
+																											<div class="featured-price-detail">
+															<i class="icon icon-rupee_2 ricon"></i><span>27.75 Lakh</span>
+															<span> - </span>
+															<i class="icon icon-rupee_2 ricon"></i><span>37.1 Lakh</span>
+														</div>
+																									</div>
+											</a>
+											<div class="featured-booknow clearfix">
+												<a href="javascript:void(0);" class="viewdls" data-target="#commonpopup" data-toggle="modal" data-id="51" data-entity="HP_FEATURED_PROJECT"><i class="icon-chat-bubble-two"></i>I am interested</a>
+											</div>
+										</div>
+									</div>
+															</div>
+													<div class="module-featured-tiles">
+																	<div class="col-sm-12 col-md-4">
+										<div class="featured-tile">
+											<a class="featured-image-wrap"
+											   id="phref01"
+											   onclick="homeCommonGa('featuredProjects','Bren Champions Square')"
+											   href="/homes/project/bren-champions-square+sarjapur-road+Bangalore+186892"
+											   ga-directive
+											   ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'Locality_Real-Estate', 'label': 'click_featuredproject_Bren Champions Square'}">
+												<div class="featured-image-wrap-child">
+																											<img
+															data-src="https://teja10.kuikr.com//r1/20160421/ak_1024_469507057-1461227695_300x300.jpeg"
+															alt=""
+															class="img-responsive lozad">
+																										<div class="ftag">Featured</div>
+													<div class="developer-logo">
+														<div class="img-builderlogo"
+															 title="Bren Champions Square">
+															 																<img data-src="https://teja10.kuikr.com//r1/20180629/ak_88_458923187-1530270955_80x80.jpeg" class="img-responsive lozad" alt="" id="logo01">
+															 														</div>
+													</div>
+												</div>
+												<!-- <div class="vdbtn">View Details</div> -->
+												<div class="featured-tile-bottom">
+													<h4 id="pname01">Bren Champions Square</h4>
+												   													<div class="fploc" id="city01">Sarjapur Road, Bangalore													</div>
+																										<div class="featured-data">
+																													<span>1,2,3 BHK </span>
+																													<span> Apartment</span>
+													</div>
+																											<div class="featured-price-detail">
+															<i class="icon icon-rupee_2 ricon"></i><span>75.28 Lakh</span>
+															<span> - </span>
+															<i class="icon icon-rupee_2 ricon"></i><span>1.02 Crore</span>
+														</div>
+																									</div>
+											</a>
+											<div class="featured-booknow clearfix">
+												<a href="javascript:void(0);" class="viewdls" data-target="#commonpopup" data-toggle="modal" data-id="01" data-entity="HP_FEATURED_PROJECT"><i class="icon-chat-bubble-two"></i>I am interested</a>
+											</div>
+										</div>
+									</div>
+																	<div class="col-sm-12 col-md-4">
+										<div class="featured-tile">
+											<a class="featured-image-wrap"
+											   id="phref11"
+											   onclick="homeCommonGa('featuredProjects','SLV Central park')"
+											   href="/homes/project/slv-central-park+old-madras-road+Bangalore+215552"
+											   ga-directive
+											   ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'Locality_Real-Estate', 'label': 'click_featuredproject_SLV Central park'}">
+												<div class="featured-image-wrap-child">
+																											<img
+															data-src="https://teja10.kuikr.com//r1/20180907/ak_673_1729477088-1536315203_300x300.png"
+															alt=""
+															class="img-responsive lozad">
+																										<div class="ftag">Featured</div>
+													<div class="developer-logo">
+														<div class="img-builderlogo"
+															 title="SLV Central park">
+															 																<img data-src="https://teja10.kuikr.com//r1/20171229/ak_200_1394923989-1514535898_80x80.jpeg" class="img-responsive lozad" alt="" id="logo11">
+															 														</div>
+													</div>
+												</div>
+												<!-- <div class="vdbtn">View Details</div> -->
+												<div class="featured-tile-bottom">
+													<h4 id="pname11">SLV Central park</h4>
+												   													<div class="fploc" id="city11">Old Madras Road, Bangalore													</div>
+																										<div class="featured-data">
+																													<span>2,3,4,1 BHK </span>
+																													<span> Apartment</span>
+													</div>
+																											<div class="featured-price-detail">
+															<i class="icon icon-rupee_2 ricon"></i><span>46.02 Lakh</span>
+															<span> - </span>
+															<i class="icon icon-rupee_2 ricon"></i><span>1.16 Crore</span>
+														</div>
+																									</div>
+											</a>
+											<div class="featured-booknow clearfix">
+												<a href="javascript:void(0);" class="viewdls" data-target="#commonpopup" data-toggle="modal" data-id="11" data-entity="HP_FEATURED_PROJECT"><i class="icon-chat-bubble-two"></i>I am interested</a>
+											</div>
+										</div>
+									</div>
+																	<div class="col-sm-12 col-md-4">
+										<div class="featured-tile">
+											<a class="featured-image-wrap"
+											   id="phref21"
+											   onclick="homeCommonGa('featuredProjects','S2 Homes The Water Grove')"
+											   href="/homes/project/s2-homes-the-water-grove+electronic-city-phase-ii+Bangalore+1257"
+											   ga-directive
+											   ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'Locality_Real-Estate', 'label': 'click_featuredproject_S2 Homes The Water Grove'}">
+												<div class="featured-image-wrap-child">
+																											<img
+															data-src="https://teja10.kuikr.com//r1/20160302/ak_2048_1859380492-1456900265_300x300.jpeg"
+															alt=""
+															class="img-responsive lozad">
+																										<div class="ftag">Featured</div>
+													<div class="developer-logo">
+														<div class="img-builderlogo"
+															 title="S2 Homes The Water Grove">
+															 																<img data-src="https://teja10.kuikr.com//r1/20180712/ak_88_1719283851-1531391218_80x80.jpeg" class="img-responsive lozad" alt="" id="logo21">
+															 														</div>
+													</div>
+												</div>
+												<!-- <div class="vdbtn">View Details</div> -->
+												<div class="featured-tile-bottom">
+													<h4 id="pname21">S2 Homes The Water Grove</h4>
+												   													<div class="fploc" id="city21">Electronic City Phase II, Bangalore													</div>
+																										<div class="featured-data">
+																													<span>2,2.5,3,3.5 BHK </span>
+																													<span> Apartment</span>
+													</div>
+																											<div class="featured-price-detail">
+															<i class="icon icon-rupee_2 ricon"></i><span>49.2 Lakh</span>
+															<span> - </span>
+															<i class="icon icon-rupee_2 ricon"></i><span>66.94 Lakh</span>
+														</div>
+																									</div>
+											</a>
+											<div class="featured-booknow clearfix">
+												<a href="javascript:void(0);" class="viewdls" data-target="#commonpopup" data-toggle="modal" data-id="21" data-entity="HP_FEATURED_PROJECT"><i class="icon-chat-bubble-two"></i>I am interested</a>
+											</div>
+										</div>
+									</div>
+															</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<div class="clearfix"></div>
+	<section class="container mrtp60">
+		<div id="homeSpotlight"></div>
+	</section>
+
+	<div class="clearfix"></div>
+
+		<div class="container mrtp60">
+		<div class="stickybox" id="MobsnbProjectBanner">
+			<div id="GridsnbProjectBanner">
+				<div style="min-height: 198px;text-align: center;background: #f2f2f2; padding-top: 75px;">
+				<div class="loader">
+					<span></span><span></span><span></span>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	
+		<section class="container mrtp60" id="topLocality">
+		<h2 class="headinghome">Top Locality in Bangalore <span class="new_c">New</span></h2>
+		<div id="snbLocalityBanner" class="mrtp30">
+			<div style="min-height: 297px;text-align: center;background: #d1eafb; padding-top: 100px;">
+				<div class="loader">
+					<span></span><span></span><span></span>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</section>
+	
+	<section class="container gridch mrtp60">
+		<div class="hdfpb">
+			<a href="/homes/postad" onclick="addEvent('link-RealestateResponsiveUI', 'HP_Real-Estate', 'click_Post_Free_Ad');" class="postadbanner lozad imgbg" data-src="https://teja8.kuikr.com/restatic/build/image/dfp_post-free-ad.jpg" style="">
+				<h4>Looking to buy or sell your home?</h4>
+				<h3>Post your Property on QuikrHomes today!</h3>
+				<span class="pabcall">or Call us on: <b>080-67364545</b></span>
+				<div class="pfabtn">Post Free Ad</div>
+				<span class="pabqhl">
+					<img data-src="https://teja8.kuikr.com/restatic/build/image/logo-quikr-homes-new.png" class="img-responsive lozad"/>
+				</span>
+			</a>
+						<div dfp id="homeHp6_5" class="dfpbox"></div>
+					</div>
+	</section>
+
+	<div class="clearfix"></div>
+
+	
+	<div class="clearfix"></div>
+
+		<section class="container mrtp60" id="PriceTrends">
+		<h2 class="headinghome">Price &amp; Rental Trends <small>for</small> Apartments <span class="new_c">New</span></h2>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<div class="whiteborderbox">
+					<div class="table-responsive">
+						<table class="pttablebox">
+							<tr>
+								<td>
+									<table class="pt-table">
+										<thead>
+											<tr>
+												<th>Area/Locality</th>
+											</tr>
+										</thead>
+										<tbody>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-hsr-layout-bangalore-cid_23-lid_7084 ">HSR Layout</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-bannerghatta-bangalore-cid_23-lid_10068 ">Bannerghatta</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-ulsoor-bangalore-cid_23-lid_808 ">Ulsoor</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-hebbal-bangalore-cid_23-lid_881 ">Hebbal</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-hennur-bangalore-cid_23-lid_7092 ">Hennur</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-indiranagar-bangalore-cid_23-lid_873 ">Indiranagar</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-jayanagar-bangalore-cid_23-lid_866 ">Jayanagar</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-k-r-puram-bangalore-cid_23-lid_868 ">K R Puram</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-kalyan-nagar-bangalore-cid_23-lid_863 ">Kalyan Nagar</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-koramangala-bangalore-cid_23-lid_859 ">Koramangala</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-btm-layout-bangalore-cid_23-lid_3968 ">BTM Layout</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-malleshwaram-bangalore-cid_23-lid_21495 ">Malleshwaram</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-marathahalli-bangalore-cid_23-lid_842 ">Marathahalli</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-old-airport-road-bangalore-cid_23-lid_834 ">Old Airport Road</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-sarjapur-bangalore-cid_23-lid_5421 ">Sarjapur</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-sarjapur-road-bangalore-cid_23-lid_816 ">Sarjapur Road</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-thanisandra-main-road-bangalore-cid_23-lid_13919 ">Thanisandra Main Road</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-whitefield-bangalore-cid_23-lid_800 ">Whitefield</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-yelahanka-bangalore-cid_23-lid_23841 ">Yelahanka</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-yeshwanthpur-bangalore-cid_23-lid_23847 ">Yeshwanthpur</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-electronic-city-bangalore-cid_23-lid_892 ">Electronic City</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-jakkur-bangalore-cid_23-lid_6598 ">Jakkur</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-banaswadi-bangalore-cid_23-lid_23868 ">Banaswadi</a>
+												</td>
+											</tr>
+																					<tr>
+												<td>
+													<a href="https://www.quikr.com/homes/property/residential-apartments-for-sale-in-domlur-bangalore-cid_23-lid_891 ">Domlur</a>
+												</td>
+											</tr>
+																				</tbody>
+									</table>
+								</td>
+								<td>
+									<table class="pt-table">
+										<thead>
+											<tr>
+												<th>Price Q2 2018 <br /><span><i class="icon icon-rupee_2"></i>per sq ft</span></th>
+												<th>% Change <br /><span>(Q1-2018 Vs Q2-2018)</span></th>
+											</tr>
+										</thead>
+										<tbody>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>4126-6014 </td>
+												<td>
+													<span class="fw">3% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>4020-5555 </td>
+												<td>
+													<span class="fw">1% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>6894-7329 </td>
+												<td>
+													<span class="fw">2% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>4131-6630 </td>
+												<td>
+													<span class="fw">1% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>4232-4990 </td>
+												<td>
+													<span class="fw">0% </span><span class="arrow-red">&#8595;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>10968-13643 </td>
+												<td>
+													<span class="fw">7% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>9025-12311 </td>
+												<td>
+													<span class="fw">1% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>3348-5202 </td>
+												<td>
+													<span class="fw">3% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>4546-5555 </td>
+												<td>
+													<span class="fw">4% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>8646-11079 </td>
+												<td>
+													<span class="fw">14% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>4698-6879 </td>
+												<td>
+													<span class="fw">3% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>7008-8849 </td>
+												<td>
+													<span class="fw">2% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>4546-618 </td>
+												<td>
+													<span class="fw">2% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>5977-8347 </td>
+												<td>
+													<span class="fw">12% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>3510-6084 </td>
+												<td>
+													<span class="fw">1% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>3780-6173 </td>
+												<td>
+													<span class="fw">2% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>3833-5240 </td>
+												<td>
+													<span class="fw">1% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>3953-6528 </td>
+												<td>
+													<span class="fw">2% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>4022-5666 </td>
+												<td>
+													<span class="fw">1% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>4833-6694 </td>
+												<td>
+													<span class="fw">0% </span><span class="arrow-red">&#8595;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>3523-5591 </td>
+												<td>
+													<span class="fw">2% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>4480-7004 </td>
+												<td>
+													<span class="fw">0% </span><span class="arrow-red">&#8595;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>4326-7046 </td>
+												<td>
+													<span class="fw">0% </span><span class="arrow-red">&#8595;</span>												</td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>5800-10114 </td>
+												<td>
+													<span class="fw">21% </span><span class="arrow-green">&#8593;</span>												</td>
+											</tr>
+																				</tbody>
+									</table>
+								</td>
+								<td>
+									<table class="pt-table">
+										<thead>
+											<tr>
+												<th>1BHK Rental (<i class="icon icon-rupee_2"></i>)</th>
+												<th>2BHK Rental (<i class="icon icon-rupee_2"></i>)</th>
+												<th>3BHK Rental (<i class="icon icon-rupee_2"></i>)</th>
+											</tr>
+										</thead>
+										<tbody>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>9785-14935 </td>
+												<td><i class="icon icon-rupee_2"></i>11330-18025 </td>
+												<td><i class="icon icon-rupee_2"></i>12051-32445 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>7272-10908 </td>
+												<td><i class="icon icon-rupee_2"></i>11615-19190 </td>
+												<td><i class="icon icon-rupee_2"></i>15150-33330 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>7000-10000 </td>
+												<td><i class="icon icon-rupee_2"></i>11000-16000 </td>
+												<td><i class="icon icon-rupee_2"></i>16500-23000 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>8160-16320 </td>
+												<td><i class="icon icon-rupee_2"></i>12852-27540 </td>
+												<td><i class="icon icon-rupee_2"></i>22848-44370 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>7035-12060 </td>
+												<td><i class="icon icon-rupee_2"></i>11809-31557 </td>
+												<td><i class="icon icon-rupee_2"></i>22412-38190 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>14231-22470 </td>
+												<td><i class="icon icon-rupee_2"></i>17120-30495 </td>
+												<td><i class="icon icon-rupee_2"></i>25680-51360 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>10100-18180 </td>
+												<td><i class="icon icon-rupee_2"></i>14140-27932 </td>
+												<td><i class="icon icon-rupee_2"></i>16665-41466 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>11330-14163 </td>
+												<td><i class="icon icon-rupee_2"></i>12592-37183 </td>
+												<td><i class="icon icon-rupee_2"></i>19570-40428 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>12272-19292 </td>
+												<td><i class="icon icon-rupee_2"></i>15253-25896 </td>
+												<td><i class="icon icon-rupee_2"></i>15496-27352 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>13680-17100 </td>
+												<td><i class="icon icon-rupee_2"></i>15618-31920 </td>
+												<td><i class="icon icon-rupee_2"></i>20292-46740 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>10815-15450 </td>
+												<td><i class="icon icon-rupee_2"></i>13493-24496 </td>
+												<td><i class="icon icon-rupee_2"></i>17384-30692 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>9996-15525 </td>
+												<td><i class="icon icon-rupee_2"></i>10632-22440 </td>
+												<td><i class="icon icon-rupee_2"></i>14630-30352 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>12750-15912 </td>
+												<td><i class="icon icon-rupee_2"></i>14043-25376 </td>
+												<td><i class="icon icon-rupee_2"></i>16651-34062 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>12320-15680 </td>
+												<td><i class="icon icon-rupee_2"></i>14056-25492 </td>
+												<td><i class="icon icon-rupee_2"></i>21258-39458 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>12859-15457 </td>
+												<td><i class="icon icon-rupee_2"></i>13909-20658 </td>
+												<td><i class="icon icon-rupee_2"></i>17042-24699 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>11455-15525 </td>
+												<td><i class="icon icon-rupee_2"></i>11832-22236 </td>
+												<td><i class="icon icon-rupee_2"></i>17929-30600 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>11110-15251 </td>
+												<td><i class="icon icon-rupee_2"></i>13242-24271 </td>
+												<td><i class="icon icon-rupee_2"></i>18047-33543 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>11106-16422 </td>
+												<td><i class="icon icon-rupee_2"></i>13434-28112 </td>
+												<td><i class="icon icon-rupee_2"></i>16524-34576 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>7070-11110 </td>
+												<td><i class="icon icon-rupee_2"></i>11110-20301 </td>
+												<td><i class="icon icon-rupee_2"></i>12120-31310 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>9045-11055 </td>
+												<td><i class="icon icon-rupee_2"></i>12362-25467 </td>
+												<td><i class="icon icon-rupee_2"></i>15979-27367 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>9690-17034 </td>
+												<td><i class="icon icon-rupee_2"></i>12240-26826 </td>
+												<td><i class="icon icon-rupee_2"></i>16320-32640 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>8836-13975 </td>
+												<td><i class="icon icon-rupee_2"></i>12371-27749 </td>
+												<td><i class="icon icon-rupee_2"></i>16833-29217 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>8809-14014 </td>
+												<td><i class="icon icon-rupee_2"></i>11412-15013 </td>
+												<td><i class="icon icon-rupee_2"></i>16117-17558 </td>
+											</tr>
+																					<tr>
+												<td><i class="icon icon-rupee_2"></i>11858-19965 </td>
+												<td><i class="icon icon-rupee_2"></i>17545-24442 </td>
+												<td><i class="icon icon-rupee_2"></i>18150-27830 </td>
+											</tr>
+																				</tbody>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="showmorec">
+						<a onclick="homeCommonGa('priceTrend','showMore')" class="button button-secondary-line btn-lg">Show more <i class="icon-down"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<div class="clearfix"></div>
+
+	<section class="container-fluid fullbg lozad imgbg mrtp60" data-src="https://teja8.kuikr.com/restatic/build/image/research.jpg">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12">
+							<h2 class="headinghome qhrf">Quikr Homes Research Facts</h2>
+							<div class="rsfwrapper">
+								<div class="rsfbox">
+									<div class="row div-responsive">
+										<div class="col-xs-4 col-sm-4 col-md-4">
+											<div class="bulletin-add">
+												<div class="bulletinad">
+													<span><img data-src="https://teja8.kuikr.com/restatic/build/image/logo-quikr-homes-new.png" class="lozad" width="100"/></span>
+													<h3>Real Estate Consumer Sentiments</h3>
+													<h4>Report 2018</h4>
+													<p>Real Estate - Trends, News, Analysis, and more... <br />2018 Edition</p>
+													<a ga-directive ga-options="{'category': 'button-RealestateResponsiveUI', 'action': 'HP_Real-Estate', 'label': 'click_bulletin_download'}"
+														onclick="homeCommonGa('facts','consumerSentiments')"
+														href="https://teja9.kuikr.com/o1/20180131/ak_625892057-1517377782.pdf"
+														target="_blank" class="button button-secondary-line text-center btn-lg">Read Now</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-4 col-sm-4 col-md-4">
+											<div class="bulletin-add">
+												<div class="bulletinad">
+													<span><img data-src="https://teja8.kuikr.com/restatic/build/image/logo-quikr-homes-new.png" class="lozad" width="100"/></span>
+													<h3>Builder Survey Report</h3>
+													<h4>December 2017</h4>
+													<p><i class="icon-tick-circle"></i> Impact of RERA on Builder <br /><i class="icon-tick-circle"></i> Impact of GST on Real Estate</p>
+													<a ga-directive ga-options="{'category': 'button-RealestateResponsiveUI', 'action': 'HP_Real-Estate', 'label': 'click_builder_survey_download'}"
+														onclick="homeCommonGa('facts','builderSurveyReport')"
+														href="https://teja9.kuikr.com/o1/20180131/ak_1798120432-1517377941.pdf"
+														target="_blank" class="button button-secondary-line text-center btn-lg">Read Now</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-4 col-sm-4 col-md-4">
+											<div class="bulletin-add">
+												<div class="bulletinad">
+													<span><img data-src="https://teja8.kuikr.com/restatic/build/image/logo-quikr-homes-new.png" class="lozad" width="100"/></span>
+													<h3>Quarters</h3>
+													<h4>Quarterly Real Estate Digest</h4>
+													<p>Catch the <b>latest Real Estate updates</b> &amp; also <b>Insights</b> into the lives renowned <b>Real Estate Professionals</b>. <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2lkxkAxsKN6EnGzGYAuZH5Jc3DxwMRStVXAN4SmbH8_f81A/viewform" target="_blank" class="selink">Send in E-mail</a></p>
+													<a href="https://docs.google.com/forms/d/e/1FAIpQLSfeSGPprXRvV-0rvylUfSK1c_qpye6rHG3_9hnpjOrSPZAjXQ/viewform" target="_blank" class="button button-secondary-line btn-lg text-center wd100" onclick="homeCommonGa('facts','quarters')">Subscribe Now</a>
+													<span class="qvol">Vol. 1 &amp; 2 available</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="clearfix"></div>
+	<section class="container mrtp60">
+		<div class="dfpfbox clearfix">
+			<div class="indfp">
+									<div dfp id="homeHp6_1" class="pull-left"></div>
+				
+			</div>
+			<div class="indfp">
+									<div dfp id="homeHp6_2" class="pull-right"></div>
+							</div>
+		</div>
+	</section>
+	<section class="container mrtp60">
+		<div class="row">
+			<div class="col-xs-12 module-blog-tiles mrbt30">
+				<h2 class="headinghome">Real Estate Blogs</h2>
+
+				<div class="row">
+					<div class="col-xs-12">
+					   
+							<div class="blog-box" onclick="redirctInnerblog('how-3d-printing-is-set-to-disrupt-real-estate','6461')">
+			<div class="ima-blog-head">
+				<small>29-10-2018</small>
+				<a class="headdng-blog" ga-directive ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'Blog_Real-Estate', 'label': 'click_blogtile_'}" href="/homes/blog/how-3d-printing-is-set-to-disrupt-real-estate+6461">How 3D Printing is set to disrupt Real Estate</a>
+				<small>by Hozefa Sanwari</small>
+			</div>
+			<div class="ima-blog">
+				<img src="" data-src="https://teja10.kuikr.com/restatic/uploads/2018/10/3D-Printing-Image.jpg" class="lozad" width="100%" />
+			</div>
+			<div class="blog-box-text clearfix">
+				<p class="fbg"><b>FROM -</b><span>  <a href="/homes/blog/category/4216 ">FEATURED</a> , <a href="/homes/blog/category/4217 ">IMPORTANT</a> , <a href="/homes/blog/category/377 ">PROPSTOP</a> , <a href="/homes/blog/category/393 ">REALTY TRENDS</a> , <a href="/homes/blog/category/281 ">RESEARCH REPORTS</a> , <a href="/homes/blog/category/375 ">TREND-BASED</a> </span></p>
+			   	<p class="read-more-wrap"><p>One of the most captivating and disruptive technologies emerging in the real estate scenario is 3D printing. At present, it is ...<a href="/homes/blog/how-3d-printing-is-set-to-disrupt-real-estate+6461" target="_blank" class="more-link">Continue reading</a></p>
+			   	<button type="button" class="button button-secondary-line btn-lg pull-left" onclick="redirctInnerblog('how-3d-printing-is-set-to-disrupt-real-estate','6461')">Read Full Article</button>
+			</div>
+		</div>
+			<div class="blog-box" onclick="redirctInnerblog('co-living-spaces-disrupting-the-rental-market','6458')">
+			<div class="ima-blog-head">
+				<small>26-10-2018</small>
+				<a class="headdng-blog" ga-directive ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'Blog_Real-Estate', 'label': 'click_blogtile_'}" href="/homes/blog/co-living-spaces-disrupting-the-rental-market+6458">Co-Living Spaces disrupting the Rental Market</a>
+				<small>by Hozefa Sanwari</small>
+			</div>
+			<div class="ima-blog">
+				<img src="" data-src="https://teja10.kuikr.com/restatic/uploads/2018/10/Co-living-Image.jpg" class="lozad" width="100%" />
+			</div>
+			<div class="blog-box-text clearfix">
+				<p class="fbg"><b>FROM -</b><span>  <a href="/homes/blog/category/4217 ">IMPORTANT</a> , <a href="/homes/blog/category/377 ">PROPSTOP</a> , <a href="/homes/blog/category/2914 ">REAL ESTATE NEWS</a> , <a href="/homes/blog/category/393 ">REALTY TRENDS</a> , <a href="/homes/blog/category/375 ">TREND-BASED</a> </span></p>
+			   	<p class="read-more-wrap"><p>Co-living is a modern form of housing accommodation where residents share living space and a set of interests. Tenants do not h...<a href="/homes/blog/co-living-spaces-disrupting-the-rental-market+6458" target="_blank" class="more-link">Continue reading</a></p>
+			   	<button type="button" class="button button-secondary-line btn-lg pull-left" onclick="redirctInnerblog('co-living-spaces-disrupting-the-rental-market','6458')">Read Full Article</button>
+			</div>
+		</div>
+			<div class="blog-box" onclick="redirctInnerblog('comprehensive-guide-of-nri-investment-in-indian-realty','6450')">
+			<div class="ima-blog-head">
+				<small>24-10-2018</small>
+				<a class="headdng-blog" ga-directive ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'Blog_Real-Estate', 'label': 'click_blogtile_'}" href="/homes/blog/comprehensive-guide-of-nri-investment-in-indian-realty+6450">Comprehensive Guide of NRI Investment in Indian Realty</a>
+				<small>by Hozefa Sanwari</small>
+			</div>
+			<div class="ima-blog">
+				<img src="" data-src="https://teja10.kuikr.com/restatic/uploads/2018/10/NRI-Blog-Image.jpg" class="lozad" width="100%" />
+			</div>
+			<div class="blog-box-text clearfix">
+				<p class="fbg"><b>FROM -</b><span>  <a href="/homes/blog/category/378 ">ADVICE</a> , <a href="/homes/blog/category/4216 ">FEATURED</a> , <a href="/homes/blog/category/4217 ">IMPORTANT</a> , <a href="/homes/blog/category/377 ">PROPSTOP</a> , <a href="/homes/blog/category/393 ">REALTY TRENDS</a> , <a href="/homes/blog/category/281 ">RESEARCH REPORTS</a> , <a href="/homes/blog/category/375 ">TREND-BASED</a> </span></p>
+			   	<p class="read-more-wrap"><p>Non-resident Indians (NRIs) happen to be one of the most dominant and sharp property investors in the Indian market. NRIs looki...<a href="/homes/blog/comprehensive-guide-of-nri-investment-in-indian-realty+6450" target="_blank" class="more-link">Continue reading</a></p>
+			   	<button type="button" class="button button-secondary-line btn-lg pull-left" onclick="redirctInnerblog('comprehensive-guide-of-nri-investment-in-indian-realty','6450')">Read Full Article</button>
+			</div>
+		</div>
+							</div>
+				</div>
+				<!-- <div class="morprojects">
+					<a ga-directive ga-options="{'category': 'link-RealestateResponsiveUI', 'action': 'Blog_Real-Estate', 'label': 'click_readmore'}" href="" onclick="window.open('http://'+window.location.hostname+'/homes/blog');" target="_blank" class="button button-secondary-line btn-lg">Read more articles</a>
+				</div> -->
+			</div>
+		</div>
+	</section>
+
+	<div class="clearfix"></div>
+	<section class="container mrtp60 clearfix">
+		<div class="hpdfpad">
+							<div dfp id="homeHp6_3" class="centeraligin"></div>
+					</div>
+	</section>
+
+	<section class="container mrtp60">
+		<div class="row">
+			<div class="col-xs-12 module-blog-tiles">
+				<div class="qh_homes">
+					<div class="row">
+						<div class="col-xs-12">
+							<a class="qhhlad lozad imgbg" href="/homes/homeloan" data-src="https://teja8.kuikr.com/restatic/build/image/dfp_home-loan-min.jpg">
+								<h3>Make your dreams come true!</h3>
+								<h4>Get a Home Loan with <b>HDFC Home Loans</b> with ease</h4>
+								<div class="qhdfclogo clearfix">
+									<img data-src="https://teja8.kuikr.com/restatic/build/image/bank_logo/hdfc_home_loans.jpg" alt="HDFC Logo" class="lozad"/>
+									<img data-src="https://teja8.kuikr.com/restatic/build/image/logo-quikr-homes-new.png" alt="Qhomeslogo" class="lozad">
+								</div>
+								<div class="kmbtn">Know more</div>
+							</a>
+						</div>
+					</div>
+										<div class="mrtp30">
+						<h2 class="headinghome">Collections</h2>
+						<div class="row">
+							<div class="col-xs-6 col-sm-4 col-md-4 mpdrg5">
+								<div class="collectionsbox small">
+									<a href="/homes/property/residential-projects-for-sale-in-bangalore-cid_23-co_4">
+									<img data-src="https://teja8.kuikr.com/restatic/build/image/c_img_2.jpg" class="lozad" max-width="100%"/>
+									<div class="overlay_c">
+										<h4>Home <strong>Office</strong> Home</h4>
+										<p>Reach office quickly!</p>
+										<button type="button" class="button button-small button-secondary">Explore</button>
+									</div>
+									</a>
+								</div>
+								<div class="collectionsbox larg">
+									<a href="/homes/property/residential-projects-for-sale-in-bangalore-cid_23-co_5">
+										<img data-src="https://teja8.kuikr.com/restatic/build/image/c_img5.jpg" class="lozad" max-width="100%"/>
+										<div class="overlay_c">
+											<h4>Home <strong>Stylish</strong> Home</h4>
+											<p>Make you look good</p>
+											<button type="button" class="button button-small button-secondary">Explore</button>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 col-md-4 mpdlt5">
+								<div class="collectionsbox larg">
+									<a href="/homes/property/residential-projects-for-sale-in-bangalore-cid_23-co_1">
+										<img data-src="https://teja8.kuikr.com/restatic/build/image/c_img4.jpg" class="lozad" max-width="100%"/>
+										<div class="overlay_c">
+											<h4>Home <strong>Budget</strong> Home</h4>
+											<p>Fit your Pocket</p>
+											<button type="button" class="button button-small button-secondary">Explore</button>
+										</div>
+									</a>
+								</div>
+								<div class="collectionsbox small">
+									<a href="/homes/property/residential-projects-for-sale-in-bangalore-cid_23-co_3">
+										<img data-src="https://teja8.kuikr.com/restatic/build/image/c_img_3.jpg" class="lozad" max-width="100%"/>
+										<div class="overlay_c">
+											<h4>Home <strong>For Kids</strong> Home</h4>
+											<p>Keep your little ones giggling!</p>
+											<button type="button" class="button button-small button-secondary">Explore</button>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4">
+								<div class="row">
+									<div class="col-xs-6 col-sm-12 col-md-12 mpdrg5">
+										<div class="collectionsbox small">
+											<a href="/homes/property/residential-projects-for-sale-in-bangalore-cid_23-co_6">
+												 <img data-src="https://teja8.kuikr.com/restatic/build/image/c_img_1.jpg" class="lozad" max-width="100%"/>
+												<div class="overlay_c">
+													<h4>Home <strong>Peaceful</strong> Home</h4>
+													<p>Keep your mind at rest</p>
+													<button type="button" class="button button-small button-secondary">Explore</button>
+												</div>
+												</a>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-12 col-md-12 mpdlt5">
+										<div class="collectionsbox larg">
+											<a href="/homes/property/residential-projects-for-sale-in-bangalore-cid_23-co_2">
+												<img data-src="https://teja8.kuikr.com/restatic/build/image/c_img6.jpg" class="lozad" max-width="100%"/>
+												<div class="overlay_c">
+													<h4>Home <strong>Luxury</strong> Home</h4>
+													<p>Make you feel like a King!</p>
+													<button type="button" class="button button-small button-secondary">Explore</button>
+												</div>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="qh_right mrbt30">
+						<div dfp id="homeHp6_4"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="clearfix"></div>
+		<section class="container-fluid hidden-xs smdatahead mrtp60">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="smdatatitle">Making Real Estate Easy!</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="summarydata databuild">&nbsp;</div>
+							<div class="sminfo">15,000+ <span>Builders</span></div>
+						</div>
+						<div class="col-sm-4">
+							<div class="summarydata prop">&nbsp;</div>
+							<div class="sminfo">15,95,000+ <span>Properties</span></div>
+						</div>
+						<div class="col-sm-4">
+							<div class="summarydata proj">&nbsp;</div>
+							<div class="sminfo">1,20,000+ <span>Projects</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	</div>
+
+<div class="modal fade selectcity-modal" id="city-select" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5 class="modal-title"><i class="icon-location"></i><b> Select Your City</b></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="popular-city-block">
+                    <div class="row">
+                        <div class="col-md-12 text-box">
+                            <input class="form-control" type="text" id="citytextbox" placeholder="Type your city here" value=""/>
+                            <i class="icon icon-search"></i>
+                        </div>
+                    </div>
+                    <div id="city-select-modal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="moreCity_Template" type="text/x-underscore-template">
+    <div class="row">
+        <div class="col-md-12 popular-city">
+            <label>Popular Cities</label>
+            <ul class="city-select-city">
+                <% _.each(all_cities, function(city,k){ %>
+                <li class="col-sm-3 col-xs-4">
+                    <a onclick="gaService.addEvent('button-RealestateResponsiveUI', 'HP_Real-Estate', 'Click_City_Selection_'+'<%= city.name %>'); citySelectController.selectCity('<%= city.id %>' , '<%= city.name %>');" class="hyperlink"> <%= city.name %> </a>
+                </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button class="button button-secondary-line" onclick="citySelectController.toggleDisplay('isCityCollapsed');">View All other Cities</button>
+        </div>
+    </div>
+    <div class="row" id="isCityCollapsed" style="display: none;">
+        <div class="col-md-12 popular-city">
+            <label>Other Major Cities</label>
+            <ul class="city-select-city">
+                <% _.each(other_cities, function(city){ %>
+                <li class="col-sm-3 col-xs-4">
+                    <a onclick="citySelectController.selectCity('<%= city.id %>','<%= city.name %>')" class="hyperlink"><%= city.name %></a>
+                </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</script>
+<div id="enquiry_city"></div>
+<script id="selectCity_Template" type="text/x-underscore-template">
+
+    <span class="dropdown search-select-city" style="display: block;">
+    <button type="button" data-toggle="dropdown" href="javascript:void(0);" class="btn btn-default city-btn dropdown-toggle" onclick="citySelectController.clearSearch()">
+            <span id="selectedCity"></span>
+            <span id="selectCityLabel">Select City</span>
+            <span class="icon-down-open-mini cityangle"></span>
+    </button>
+    
+    <ul class="dropdown-menu upcarret-left citydp">
+        <li onkeyup="cancelBubble(event)">
+            <input type="text" placeholder="Type city" class="citysearch"  data-tap-disabled="true" />
+        </li>
+        <% _.each(all_cities, function(city){ %>
+        <li
+            onclick="searchGa('searchcity');citySelectController.selectCityEnquiryBox('<%= city.id %>','<%= city.name %>');addEvent('Real-Estate_Header_Responsive', pageName, 'select_cityname_' + <%= city.name %>);">
+            <a href="javascript:void(0);"><%= city.name %></a>
+        </li>
+        <% }); %>
+        <li>
+            <a href="javascript:void(0);" style="color:#008bcf;" data-target="#city-select" data-toggle="modal">More Cities ›</a>
+        </li>
+    </ul>
+</span>
+</script>
+<div class="modal fade brokerpopup" id="brokerModel" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div id="replyBroker_Container" class="modal-content">
+        </div>
+    </div>
+</div>
+
+<div class="modal fade reply-modal" id="replyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div id="replyBox_Container" class="modal-content">
+            <div class="newmodal"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade commonpopup reply-modal" id="commonpopup" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="reply_Container">
+            
+        </div>
+    </div>
+</div><div class="container-fluid module-footer">
+    <!-- Footer -->
+    <footer class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 hidden-xs hidden-sm">
+                <ul class="footer-menu">
+                    <li><a rel="nofollow" target="_parent" href="https://www.quikr.com/html/about.php">About Us</a></li>
+                    <li><a rel="nofollow" target="_parent" href="https://www.quikr.com/html/contact.php">Contact Us</a>
+                    </li>
+                    <li><a rel="nofollow" target="_parent" href="https://www.quikr.com/html/jobs.php">Careers</a></li>
+                    <li><a rel="nofollow" target="_parent" href="https://www.quikr.com/video?id=vhS7M5IdOpI">Quikr
+                            Videos</a></li>
+                    <li><a target="_parent" rel="nofollow" href="https://www.quikr.com/adsales">Advertise With Us</a>
+                    </li>
+                    <li><a href="" onclick="window.open('http://'+window.location.hostname+'/homes/blog');"
+                           target="_blank">Blog</a></li>
+                                            <li><a target="_blank"
+                               href="/homes/all-builders/developers-in-bangalore/c-23">Builders</a>
+                        </li>
+                                        <li><a rel="nofollow" target="_parent" href="http://www.quikr.com/help/">Help</a></li>
+                </ul>
+                <div class="footer-seo active">
+                    <p>QuikrHomes is here to make your journey to a new home, simple and memorable. So we decided to bring you a platform which allows you to browse through millions of property listings across 900+ cities in India. You can now do a quick and convenient search for apartments, commercial properties, land-plots and other real estate properties in Bangalore. Now buying and renting comes with the freedom of ease and comfort. You can even refine your search results based on price, number of rooms, area size, locality and other relevant property amenities. And if you need any help, give us a call <span class="footertf"> 08067364545</span></p>
+
+                    <p class="font_b">The information provided herein have been collected from publicly available sources, and is yet to be verified as per RERA guidelines.* 
+                        <a href="javascript:void(0);" class="redmo" onclick ="$('.footer-seo').removeClass('active');" >Read more..</a></p>
+                    <div class="footerd">
+                        <p>The information sources used here include onsite interviews, marketing material and other information sources on the internet. The information related to ownership of this property are also based on material gathered from public sources mentioned above or as has been declared to us by the owners/person listing the property. These data have not yet been verified against authentic documents, and are only indicative of the actual situation of this property, project or land holding, and their ownership. </p>
+                        <p>At QuikrHomes, we provide this information to help our users find publicly available data in a structured format. We are in the process of connecting with the relevant owners and verifying the data as per the provisions of the Real Estate (Regulation and Development) Act, 2016. We will keep updating the information here regularly. While we believe that the information provided to you is correct on the basis of the data provided to us, please consider this data and information as indicative and use your judgement and verify any information before making any decision. <a href="javascript:void(0);" onclick ="$('.footer-seo').addClass('active');" >Less</a></p></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                <div class="footer-app">
+                    <a rel="nofollow"
+                       href="https://itunes.apple.com/in/app/quikr-free-local-classifieds/id632051273?mt=8"
+                       title="ios App" target="_blank"><i class="icon icon-apple"></i></a>
+                    <a rel="nofollow"
+                       href="https://play.google.com/store/apps/details?id=com.quikr&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dwebsite"
+                       title="Android App" target="_blank"><i class="icon icon-play-store-icon"></i></a>
+                </div>
+                <div class="footer-menu-cities clearfix hidden-xs hidden-sm">
+                    <ul>
+                        <li><a rel="nofollow" href="https://ahmedabad.quikr.com">Ahmedabad</a></li>
+                        <li><a rel="nofollow" href="https://bangalore.quikr.com">Bangalore</a></li>
+                        <li><a rel="nofollow" href="https://chandigarh.quikr.com">Chandigarh</a></li>
+                        <li><a rel="nofollow" href="https://chennai.quikr.com">Chennai</a></li>
+                    </ul>
+                    <ul>
+                        <li><a rel="nofollow" href="https://coimbatore.quikr.com">Coimbatore</a></li>
+                        <li><a rel="nofollow" href="https://delhi.quikr.com">Delhi</a></li>
+                        <li><a rel="nofollow" href="https://gurgaon.quikr.com">Gurgaon</a></li>
+                        <li><a rel="nofollow" href="https://hyderabad.quikr.com">Hyderabad</a></li>
+                    </ul>
+                    <ul>
+                        <li><a rel="nofollow" href="https://jaipur.quikr.com">Jaipur</a></li>
+                        <li><a rel="nofollow" href="https://kochi.quikr.com">Kochi</a></li>
+                        <li><a rel="nofollow" href="https://kolkata.quikr.com">Kolkata</a></li>
+                        <li><a rel="nofollow" href="https://lucknow.quikr.com">Lucknow</a></li>
+                    </ul>
+                    <ul>
+                        <li><a rel="nofollow" href="https://mumbai.quikr.com">Mumbai</a></li>
+                        <li><a rel="nofollow" href="https://pune.quikr.com">Pune</a></li>
+                        <li><a rel="nofollow" href="https://www.quikr.com/all-cities">All Cities</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="footer-menu">
+                    <li class="dahide"><a rel="nofollow" target="_parent" href="https://www.quikr.com/html/about.php">About Us</a></li>
+                    <li class="dahide"><a rel="nofollow" target="_parent" href="https://www.quikr.com/html/contact.php">Contact Us</a>
+                    <li class="dahide"><a href="" onclick="window.open('http://'+window.location.hostname+'/homes/blog');" target="_blank">Blog</a></li>
+                    <li><a rel="nofollow" target="_parent" href="https://www.quikr.com/html/policies.php">Listing Policy</a></li>
+                    <li><a rel="nofollow" target="_parent" href="https://www.quikr.com/html/termsandconditions.php">Terms of Use</a></li>
+                    <li><a rel="nofollow" target="_parent" href="https://www.quikr.com/html/privacy.php">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mrtp10">
+            <div class="col-xs-12 col-lg-8">
+                <div class="footer-brands clearfix">
+                    <ul>
+                        <li>Other Brands:</li>
+                        <li><a href="http://stepni.com" target="_blank" rel="noopener">Stepni</a></li>
+                        <li><a href="https://www.realtycompass.com" target="_blank" rel="noopener">Realty Compass</a></li>
+                        <li><a href="http://stayglad.com" target="_blank" rel="noopener">Stay Glad</a></li>
+                        <li><a href="http://irxlive.com" target="_blank" rel="noopener">IRX</a></li>
+                        <li><a href="https://www.commonfloor.com" target="_blank" rel="noopener">Commonfloor</a></li>
+                        <li><a href="http://hiree.com" target="_blank" rel="noopener">Hiree</a></li>
+                        <li><a href="http://www.athomediva.com" target="_blank" rel="noopener">AtHomeDiva</a></li>
+                        <li><a href="http://www.dazzlr.in" target="_blank" rel="noopener">Dazzlr</a></li>
+                        <li><a href="http://grabhouse.com" target="_blank" rel="noopener">Grabhouse</a></li>
+                    </ul>
+                </div>
+            </div>
+             <div class="col-xs-12 col-lg-4 footer-policy">
+                Copyright &copy; 2008 - 2018 Quikr India Private Limited
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script type="text/javascript">
+    var mobileAndTabletCheck = function () {
+        var check = false;
+        (function (a) {
+            if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4)))check = true
+        })(navigator.userAgent || navigator.vendor || window.opera);
+        return check;
+    }
+    var _gaq = _gaq || [];
+    if (mobileAndTabletCheck()) {
+        _gaq.push(['_setAccount', 'UA-5568615-7']);
+    } else {
+        _gaq.push(['_setAccount', 'UA-5568615-1']);
+    }
+    _gaq.push(['_gat._forceSSL']);
+    _gaq.push(['set','transport','beacon']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+    <script type="text/javascript" id="tpapi" charset="UTF-8" src="https://teja8.kuikr.com/restatic/build/js/tpapi_cf7f7a9c1d.js"></script>
+    
+<script type="text/javascript" charset="UTF-8" src="https://teja8.kuikr.com/restatic/build/js/uscore_f315b81a61.js"></script>
+<script>
+    window.CDNURL = 'https://teja8.kuikr.com/restatic/build';
+    var DEBUG = false;
+    // $(document).ready(function () {
+    //     $(document).on("citySelectPopup", function (event, data) {
+    //         $("#hSelectCity").find('span').text(data.city);
+    //         $('#selectCityLabel').hide();
+    //         $("#selectCityLabel").text(data.city);
+    //     });
+    //     $(window).scroll(function() {
+    //         if ($(this).scrollTop()) {
+    //             $('.goto-top:hidden').stop(true, true).fadeIn();
+    //         } else {
+    //             $('.goto-top').stop(true, true).fadeOut();
+    //         }
+    //     });
+    //     $('.goto-top').click(function() {
+    //         $('html, body').animate({
+    //             scrollTop : $("html").offset().top - 10
+    //         },300);
+    //     });
+    // });
+            var QDFP_SCRIPT_URL = "https://teja10.kuikr.com/public/mon/qapqdfp/dist/3.3.4/realestate/index.1541768377.js";
+    </script>
+<script>if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/sw.js')
+        .then(reg => {
+            DEBUG &&console.log('REGISTERED!!')
+            DEBUG && console.log(reg);
+        })
+        .catch(err => {
+            DEBUG && console.log("Couldn't register", err)
+        })
+} else {
+    //Doesn't exist
+    DEBUG && console.log('serviceworker not supported')
+}</script>
+<script>
+	 var sourceType = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? 'MOBILESITE' : 'WEBSITE';
+	 if(sourceType=='WEBSITE') {
+		var space = "104003"; //for desktop
+	 }else {
+		var space = "204003"; //for mobile
+	 }
+	 var globals = {};
+	 globals.pageType = 'Home';
+	 var pageType ='Home';
+	 var boomEnd = "https://bakerst.quikr.com/logdata";
+	 var staticImageHost = "https://teja9.kuikr.com/";
+	 var samplingVal = "100.100";
+	 var servVal = ""; // add your internal server IP in base64 encoded format
+	 var pageMod = ["navid","hpSearchBar","hpCarousel","hpFeaturedProj"];
+	 var intentData = '';
+</script>
+<script src="https://teja8.kuikr.com/js/bakerst-min.1481539355.js" type="text/javascript"></script>
+<script type="text/javascript" charset="UTF-8" src="https://teja8.kuikr.com/restatic/build/js/slick_15b6d68558.js"></script>
+<script src="https://teja8.kuikr.com/restatic/static/js/bundle.common.3d9b0448d87d1be40ce0.js"></script>
+<script src="https://teja8.kuikr.com/restatic/static/js/bundle.re_main.a102a182b911ed130a3d.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"1e5713b51a","applicationID":"28350949","transactionName":"YARSZhNXXkJUBkJdCVlOc0cSQl9cGg1TVQJSEw==","queueTime":0,"applicationTime":299,"atts":"TENREFtNTUw=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
